@@ -1,3 +1,29 @@
+:root {
+    --green: #63D6DC;
+    --blue: #628EE1;
+    --purple: #9455EB;
+    --pink: #E432F7;
+    --syncopate: 'Syncopate', sans-serif;
+    --inter: 'Inter', sans-serif;
+    --audiowide: 'Audiowide', cursive;
+    --size-sm: 16px;
+    --size-md: 24px;
+    --size-lg: 36px;
+    --size-xxxlg: 96px;
+}
+
 html * {
     box-sizing: border-box;
+}
+
+html, #root {
+    min-height: 100vh;
+    height: 100%;
+
+    /* background-color: #ff2600; */
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
 }
