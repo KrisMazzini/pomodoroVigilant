@@ -1,15 +1,24 @@
-import { useEffect, useState } from "react"
-import { Time } from "../Time"
+import { useEffect, useState, useContext, Dispatch, SetStateAction } from "react"
+
 import { Container } from './styles'
 
+import { playAlarm } from "../../utils/playAlarm"
+
+import { RunTimerContext } from "../../contexts/RunTimerContext"
+
+import { Time } from "../Time"
+
 interface Props {
-    time: number
+    timer: number,
+    setTimer: Dispatch<SetStateAction<number>>
 }
 
-export function Timer({ time }:Props) {
+export function Timer({timer, setTimer}:Props) {
+
+    const {runTimer, setRunTimer} = useContext(RunTimerContext)
     
-    const [minutes, setMinutes] = useState<number>(getMinutes(time))
-    const [seconds, setSeconds] = useState<number>(getSeconds(time))
+    const [minutes, setMinutes] = useState<number>(getMinutes(timer))
+    const [seconds, setSeconds] = useState<number>(getSeconds(timer))
 
     function getMinutes(seconds:number):number {
         return Math.floor(seconds / 60)
@@ -19,10 +28,29 @@ export function Timer({ time }:Props) {
         return fullSeconds % 60
     }
 
+    function handleCountdown() {
+        setTimer(timer - 1)
+    }
+
     useEffect(() => {
-        setMinutes(getMinutes(time))
-        setSeconds(getSeconds(time))
-    }, [time])
+        setMinutes(getMinutes(timer))
+        setSeconds(getSeconds(timer))
+
+        const timeout = timer <= 0;
+
+        if (timeout && runTimer) {
+            playAlarm()
+            setTimer(0)
+            setRunTimer(false)
+        }
+    }, [timer])
+
+    useEffect(() => {
+        if (!runTimer) return;
+
+        const interval = setInterval(handleCountdown, 1000)
+        return () => clearInterval(interval)
+    })
 
     return (
         <Container>

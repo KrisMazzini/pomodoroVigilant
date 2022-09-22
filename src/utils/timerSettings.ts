@@ -5,7 +5,7 @@ export interface TimerProps {
 
 export const timerSettings:TimerProps = {
     activityTimer: minutesToSeconds(0.1),
-    restTimer: minutesToSeconds(5),
+    restTimer: minutesToSeconds(0.1),
 }
 
 function minutesToSeconds(minutes:number):number {
