@@ -52,7 +52,7 @@ export function Home() {
   return (
     <Container>
       <header>
-        <Header></Header>
+        <Header />
       </header>
       <main>
         <Timer time={timer}/>
