@@ -21,9 +21,9 @@ export function Home() {
     setTimer(timer - 1)
   }
 
-  async function playAlarm() {
+  function playAlarm() {
     const audio = new Audio(alarm)
-    await audio.play()
+    audio.play()
   }
 
   useEffect(() => {
