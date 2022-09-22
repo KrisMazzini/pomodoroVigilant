@@ -1,16 +1,22 @@
 import { useEffect, useState } from "react"
-import styled from 'styled-components'
 
 import alarm from '../../assets/woosh.wav'
 import { timerSettings } from '../../utils/timerSettings';
 
+import { Container } from "./styles";
+
 import { Header } from '../../components/Header';
 import { Timer } from '../../components/Timer';
+import { Button, ButtonProps } from "../../components/Button";
 
 export function Home() {
 
   const [timer, setTimer] = useState<number>(timerSettings.activityTimer)
   const [isTimerRunning, setIsTimerRunning] = useState<boolean>(false)
+  const [button, setButton] = useState<ButtonProps>({
+    onclick: startTimer,
+    content: "Start Timer"
+  })
 
   function startTimer() {
     playAlarm()
@@ -51,15 +57,7 @@ export function Home() {
       <main>
         <Timer time={timer}/>
       </main>
-      <button onClick={startTimer}>Start Timer</button>
+      <Button {...button}/>
     </Container>
   );
 }
-
-const Container = styled.div`
-  flex: 1;
-  
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`
