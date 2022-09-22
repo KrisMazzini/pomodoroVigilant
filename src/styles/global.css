@@ -1,4 +1,6 @@
 :root {
+    --dark: #171717;
+    --light: #D9ECED;
     --green: #63D6DC;
     --blue: #628EE1;
     --purple: #9455EB;
@@ -20,7 +22,7 @@ html, #root {
     min-height: 100vh;
     height: 100%;
 
-    /* background-color: #ff2600; */
+    background-color: var(--dark);
 }
 
 #root {
