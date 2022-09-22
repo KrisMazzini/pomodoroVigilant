@@ -12,7 +12,7 @@ import { Button, ButtonProps } from "../Button"
 
 export function Main() {
     
-    const {runTimer, setRunTimer} = useContext(RunTimerContext)
+    const { setRunTimer } = useContext(RunTimerContext)
     const [timer, setTimer] = useState<number>(timerSettings.activityTimer)
 
     const [button, setButton] = useState<ButtonProps>({
