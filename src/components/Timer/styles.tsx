@@ -12,9 +12,12 @@ export const Container = styled.div`
         var(--blue),
         var(--purple),
         var(--pink)
-    );
-
+        );
     background-clip: text;
+
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 
     * {
         color: transparent;
