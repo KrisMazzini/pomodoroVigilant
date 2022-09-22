@@ -14,6 +14,7 @@ export const Container = styled.div`
         var(--pink)
         );
     background-clip: text;
+    -webkit-background-clip: text;
 
     -webkit-user-select: none;
     -ms-user-select: none;
