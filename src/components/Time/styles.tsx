@@ -1,6 +1,8 @@
 import styled from "styled-components"
 
 export const Container = styled.div`
+    width: 11rem;
+    
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,6 +18,5 @@ export const Container = styled.div`
         font-size: var(--size-xxxlg);
         font-weight: 700;
         vertical-align: middle;
-        letter-spacing: -0.05em;
     }
 `
